@@ -37,7 +37,8 @@ class Login {
         .then((response) => response.json())
         .then((data) => {
           // Login successful, set local storage and submit form
-          localStorage.setItem("auth", data.authToken);
+          localStorage.setItem("authToken", data.authToken);
+          localStorage.setItem("auth", '1');
           console.log(data.authToken);
           self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
           setTimeout(() => {
