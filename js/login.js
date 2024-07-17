@@ -43,7 +43,7 @@ if (error == 0) {
         // Handle login error
       });
     }
-  }
+  });
   validateFields(field) {
     // remove any whitespace and check to see if the field is blank, if so return false
     if (field.value.trim() === "") {
