@@ -39,6 +39,10 @@ class Login {
           // Login successful, set local storage and submit form
           localStorage.setItem("auth", data.authToken);
           console.log(data.authToken);
+          self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 2000);
         })
         .catch((error) => {
           // Handle login error
