@@ -21,12 +21,28 @@ class Login {
             }
         });
         // if everything validates, error will be 0 and can continue
-        if (error == 0) {
-            //do login api here or in this case, just submit the form and set a localStorage item
-            localStorage.setItem("auth", 1);
-            this.form.submit();
-        }
-    });
+if (error == 0) {
+      const username = document.querySelector('#username').value;
+      const password = document.querySelector('#password').value;
+      const jsonData = JSON.stringify({ username, password });
+
+      fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        // Login successful, set local storage and submit form
+        localStorage.setItem("auth", 1);
+        this.form.submit();
+      })
+      .catch((error) => {
+        // Handle login error
+      });
+    }
   }
   validateFields(field) {
     // remove any whitespace and check to see if the field is blank, if so return false
