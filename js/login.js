@@ -11,7 +11,7 @@ class Login {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       var error = 0;
-      console.log(form init)
+      console.log(form init);
 
       self.fields.forEach((field) => {
         const input = document.querySelector(`#${field}`);
