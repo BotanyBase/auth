@@ -11,13 +11,11 @@ class Login {
     this.form.addEventListener("submit", (e) => {
       e.preventDefault();
       var error = 0;
-      console.log(form init);
 
       self.fields.forEach((field) => {
         const input = document.querySelector(`#${field}`);
         if (self.validateFields(input) == false) {
           error++;
-          console.log(field error);
         }
       });
 
@@ -25,7 +23,6 @@ class Login {
         const username = document.querySelector('#username').value;
         const password = document.querySelector('#password').value;
 
-        console.log(going to make request);
         // Use Xano's auth API to login
         fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/login', {
           method: 'POST',
@@ -39,23 +36,21 @@ class Login {
         })
         .then((response) => response.json())
         .then((data) => {
-          console.log(request made);
           // Login successful, set local storage and submit form
           localStorage.setItem("auth", data.token);
           console.log(data.token);
-          //this.form.submit();
-          console.log(test: form submitted);
         })
         .catch((error) => {
           // Handle login error
-          console.error(error);
-          console.log(error);
+          self.setStatus(document.querySelector('#username'), 'Username or password does not match', 'error');
+          self.setStatus(document.querySelector('#password'), 'Username or password does not match', 'error');
         });
       }
     });
   }
 
   validateFields(field) {
+    // ...
     if (field.value.trim() === "") {
       this.setStatus(
         field,
@@ -84,10 +79,11 @@ class Login {
   }
 
   setStatus(field, message, status) {
+    // ...
     const errorMessage = field.parentElement.querySelector(".error-message");
 
     if (status == "success") {
-        if (errorMessage) {
+      if (errorMessage) {
         errorMessage.innerText = "";
       }
       field.classList.remove("input-error");
