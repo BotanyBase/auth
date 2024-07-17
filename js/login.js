@@ -41,7 +41,7 @@ class Login {
           console.log(data.authToken);
           self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
           setTimeout(() => {
-            window.location.href = '/dashboard';
+            window.location.href = '/auth/dashboard';
           }, 2000);
         })
         .catch((error) => {
