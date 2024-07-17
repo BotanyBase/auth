@@ -37,8 +37,7 @@ class Login {
         .then((response) => response.json())
         .then((data) => {
           // Login successful, set local storage and submit form
-          localStorage.setItem("auth", data.token);
-          console.log(data.token);
+          localStorage.setItem("auth", data.authToken);
           console.log(data.authToken);
         })
         .catch((error) => {
