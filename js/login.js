@@ -39,6 +39,7 @@ class Login {
           // Login successful, set local storage and submit form
           localStorage.setItem("auth", data.token);
           console.log(data.token);
+          console.log(data.authToken);
         })
         .catch((error) => {
           // Handle login error
