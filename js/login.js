@@ -43,7 +43,8 @@ class Login {
           // Login successful, set local storage and submit form
           localStorage.setItem("auth", data.token);
           console.log(data.token);
-          this.form.submit();
+          //this.form.submit();
+          console.log(test: form submitted);
         })
         .catch((error) => {
           // Handle login error
