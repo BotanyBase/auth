@@ -1,2 +1,0 @@
-# auth
-Test Auth System
