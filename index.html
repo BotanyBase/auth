@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/auth/css/style.min.css">
-    <script defer src="/auth/js/login.js"></script>
-</head>
-<body class="login">
-    <div class="container">
-        <h2 class="text-center">Login</h2>
+---
+layout: default
+title: Auth Login
+---
+
+<div class="container">
+    <h2 class="text-center">Login</h2>
+    <br>
+    <form action="/auth/dashboard.html" class="loginForm">
+        <div class="input-group">
+            <label for="username" class="label">Username</label>
+            <input type="text" id="username" class="input">
+            <span class="error-message"></span>
+        </div>
         <br>
-        <form action="/auth/dashboard.html" class="loginForm">
-            <div class="input-group">
-                <label for="username" class="label">Username</label>
-                <input type="text" id="username" class="input">
-                <span class="error-message"></span>
-            </div>
-            <br>
-            <div class="input-group">
-                <label for="password" class="label">Password</label>
-                <input type="password" id="password" class="input">
-                <span class="error-message"></span>
-            </div>
-            <br>
-            <button class="button" type="submit">Login</button>
-        </form>
-    </div>
-    <script src="https://cdn.auth0.com/js/auth0/9.13/auth0.min.js"></script>
-</body>
-</html>
+        <div class="input-group">
+            <label for="password" class="label">Password</label>
+            <input type="password" id="password" class="input">
+            <span class="error-message"></span>
+        </div>
+        <br>
+        <button class="button" type="submit">Login</button>
+    </form>
+</div>
