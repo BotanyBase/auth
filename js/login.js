@@ -45,7 +45,7 @@ class Login {
             localStorage.setItem("authToken", data.authToken);
             localStorage.setItem("auth", '1');
             console.log(data.authToken);
-            self.setStatus(document.querySelector('#success'), 'Success, redirecting to dashboard...', 'successfinal');
+            self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
             setTimeout(() => {
               window.location.href = '/auth/dashboard';
             }, 2000);
@@ -91,16 +91,12 @@ class Login {
   setStatus(field, message, status) {
     // ...
     const errorMessage = field.parentElement.querySelector(".error-message");
-    const successMessage = field.parentElement.querySelector(".success-message");
 
     if (status == "success") {
       if (errorMessage) {
         errorMessage.innerText = "";
       }
       field.classList.remove("input-error");
-    }
-    if (status == "successfinal") {
-      successMessage.innerText = message;
     }
     if (status == "error") {
       errorMessage.innerText = message;
