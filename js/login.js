@@ -34,22 +34,27 @@ class Login {
             password: password
           })
         })
-        .then((response) => response.json())
-        .then((data) => {
-          // Login successful, set local storage and submit form
-          localStorage.setItem("authToken", data.authToken);
-          localStorage.setItem("auth", '1');
-          console.log(data.authToken);
-          self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
-          setTimeout(() => {
-            window.location.href = '/auth/dashboard';
-          }, 2000);
+        .then((response) => {
+          if (!response.ok) { // Check if the response status is not ok (200-299)
+            throw new Error('Login failed: ' + response.status);
+          }
+          return response.json();
         })
-        .catch((error) => {
-          // Handle login error
-          self.setStatus(document.querySelector('#username'), 'Username or password does not match', 'error');
-          self.setStatus(document.querySelector('#password'), 'Username or password does not match', 'error');
-        });
+          .then((data) => {
+            // Login successful, set local storage and submit form
+            localStorage.setItem("authToken", data.authToken);
+            localStorage.setItem("auth", '1');
+            console.log(data.authToken);
+            self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
+            setTimeout(() => {
+              window.location.href = '/auth/dashboard';
+            }, 2000);
+          })
+          .catch((error) => {
+            // Handle login error
+            self.setStatus(document.querySelector('#username'), 'Username or password does not match', 'error');
+            self.setStatus(document.querySelector('#password'), 'Username or password does not match', 'error');
+          });
       }
     });
   }
