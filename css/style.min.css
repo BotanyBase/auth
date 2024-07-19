@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
  * {
 	 box-sizing: border-box;
 }
  body {
-	 font-family: "Open Sans", sans-serif;
+	 font-family: "VT323", sans-serif;
 	 background-color: #1e1f21;
-	 color: #dbd5f2;
+	 color: #12c441;
 	 font-size: 16px;
 	 font-weight: 900;
 }
@@ -15,14 +18,14 @@
 }
 
 a {
-	color: #b6a6ff;
+	color: #87f5a4;
 }
 
  .container {
 	 max-width: 98vw;
 	 margin: 0 auto;
 	 padding: 1rem;
-	 background-color: #383838;
+	 background-color: #2e2e2e;
 }
  .text-center {
 	 text-align: center;
@@ -33,7 +36,7 @@ a {
 	 padding: 2rem;
 	 border: 2px solid #262626;
 	 border-radius: 0.25rem;
-	 background-color: #383838;
+	 background-color: #525252;
 }
  .input {
 	 appearance: none;
@@ -61,7 +64,7 @@ a {
 	 color: red;
 }
  .button {
-	 background-color: #2e2954;
+	 background-color: #00b330;
 	 padding: 1rem;
 	 border: none;
 	 color: #fff;
