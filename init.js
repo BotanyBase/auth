@@ -15,7 +15,7 @@ class Auth {
     }
     // will remove the localStorage item and redirect to login  screen
     logOut() {
-        localStorage.removeItem("auth");
+        localStorage.setItem("auth", 0);
         localStorage.setItem("authToken", 0);
         window.location.replace("/authuser");
     }
