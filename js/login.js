@@ -48,7 +48,7 @@ class Login {
             self.setStatus(document.querySelector('#username'), 'Success, redirecting to dashboard...', 'success');
             setTimeout(() => {
               window.location.href = '/authuser/dashboard';
-            }, 2000);
+            }, 500);
           })
           .catch((error) => {
             // Handle login error
