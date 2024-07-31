@@ -8,9 +8,6 @@ function formatTimestamp(timestamp) {
     return formattedDate;
 }
 
-// Test the function
-const timestamp = 1721224755436;
-console.log(formatTimestamp(timestamp));
 fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
   method: 'GET',
   headers: {
