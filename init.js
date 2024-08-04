@@ -8,7 +8,7 @@ class Auth {
     // check to see if the localStorage item passed to the function is valid and set
     validateAuth(auth) {
         if (auth != 1) {
-            window.location.replace("/authuser");
+            window.location.replace("/auth");
         } else {
             document.querySelector("body").style.display = "block";
         }
@@ -17,7 +17,7 @@ class Auth {
     logOut() {
         localStorage.setItem("auth", 0);
         localStorage.setItem("authToken", 0);
-        window.location.replace("/authuser");
+        window.location.replace("/auth");
     }
 }
 
