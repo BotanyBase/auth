@@ -5,29 +5,43 @@ title: Auth Sign Up
 
 <script defer src="/auth/js/signup.js"></script>
 
-<div class="container">
-    <h2 class="text-center">Sign Up</h2>
-    <p>Passwords <b>must</b> have at least 1 letter, 1 number and has to be longer than 8 characters.</p>
+<div class="container" style="display: block; margin: 0 auto; width: 90%; padding-left: 20px;">
+  <h2 class="text-center">Sign-Up</h2>
+  <br>
+  <form action="/auth/dashboard" class="loginForm">
+    <div class="input-group">
+      <div class="input__container">
+        <div class="shadow__input"></div>
+        <button class="input__button__shadow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="20px" height="20px">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+          </svg>
+        </button>
+        <input type="text" id="username" class="input__search" placeholder="Input Username">
+        <span class="error-message"></span>
+      </div>
+    </div>
     <br>
-    <form action="/auth/dashboard" class="loginForm">
-        <div class="input-group">
-            <label for="username" class="label">Username</label>
-            <input type="text" id="username" class="input">
-            <span class="error-message"></span>
-        </div>
-        <br>
-        <div class="input-group">
-            <label for="email" class="label">Email</label>
-            <input type="email" id="email" class="input">
-            <span class="error-message"></span>
-        </div>
-        <br>
-        <div class="input-group">
-            <label for="password" class="label">Password</label>
-            <input type="password" id="password" class="input">
-            <span class="error-message"></span>
-        </div>
-        <br>
-        <button class="button" type="submit">Login</button>
-    </form>
+    <br>
+    <div class="input-group">
+      <div class="input__container">
+        <div class="shadow__input"></div>
+        <input type="email" id="email" class="input__search" placeholder="Input Email">
+        <span class="error-message"></span>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="input-group">
+      <div class="input__container">
+        <div class="shadow__input"></div>
+        <input type="password" id="password" class="input__search" placeholder="Input Password">
+        <span class="error-message"></span>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button class="nb-button green" type="submit">Login</button>
+  </form>
 </div>
