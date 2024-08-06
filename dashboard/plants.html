@@ -3,7 +3,7 @@ layout: default
 title: Dashboard
 ---
 
-<div class="bannerbg">
+<div class="bannerbg" style="padding: 30px;">
   <div class="bg">
     <h1>Saved Plant(s)</h1>
     <p id="entries">View your bookmarked plant entries here!</p>
@@ -22,7 +22,11 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
 })
 .then((response) => response.json())
 .then((data) => {
-  document.getElementById('entries').innerHTML = data.botanybase_plants;
+  if (data.botanybase_plants == 'undefined') {
+    document.getElementById('entries').innerHTML = 'You don't have any saved plants.';
+  } else {
+    document.getElementById('entries').innerHTML = data.botanybase_plants;
+  }
 })
 .catch((error) => {
   console.error(error);
