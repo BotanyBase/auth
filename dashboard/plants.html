@@ -1,0 +1,30 @@
+---
+layout: default
+title: Dashboard
+---
+
+<div class="bannerbg">
+  <div class="bg">
+    <h1>Saved Plant(s)</h1>
+    <p id="entries">View your bookmarked plant entries here!</p>
+    <p style="color: #ffffff !important;"></p>
+  </div>
+  <a href="/auth/dashboard" class="nb-button green rounded">Back</a>
+</div>
+
+<script>
+fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('authToken') // Use the stored JWT
+  }
+})
+.then((response) => response.json())
+.then((data) => {
+  document.getElementById('entries').innerHTML = data.botanybase_plants;
+})
+.catch((error) => {
+  console.error(error);
+});
+</script>
