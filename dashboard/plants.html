@@ -23,7 +23,7 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
 .then((response) => response.json())
 .then((data) => {
   if (data.botanybase_plants == 'undefined') {
-    document.getElementById('entries').innerHTML = 'You don't have any saved plants.';
+    document.getElementById('entries').innerHTML = 'You do not have any saved plants.';
   } else {
     document.getElementById('entries').innerHTML = data.botanybase_plants;
   }
