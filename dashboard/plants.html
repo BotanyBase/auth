@@ -8,6 +8,7 @@ title: Dashboard
     <h1>Saved Plant(s)</h1>
     <p>View your bookmarked plant entries here!</p>
     <p id="entries" style="color: #ffffff !important;"></p>
+    <a href="/identify/full" id="empty" class="nb-button green">Add Plants Here --></a>
   </div>
   <a href="/auth/dashboard" class="nb-button green rounded">Back</a>
 </div>
@@ -31,4 +32,10 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
 .catch((error) => {
   console.error(error);
 });
+
+if (data.botanybase_plants == null) {
+  document.getElementById("empty").style.display = "block";
+} else {
+ document.getElementById("empty").style.display = "none";
+}
 </script>
