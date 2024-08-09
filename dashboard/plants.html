@@ -8,7 +8,8 @@ title: Dashboard
     <h1>Saved Plant(s)</h1>
     <p>View your bookmarked plant entries here!</p>
     <p id="entries" style="color: #ffffff !important;"></p>
-    <div class="plant-entries"></div>
+    <div class="plant-entries" id="plant-entries">
+    </div>
     <a href="/identify/full" id="empty" class="nb-button green">Add Plants Here --></a>
   </div>
   <a href="/auth/dashboard" class="nb-button green rounded">Back</a>
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const jsonArrays = await Promise.all(fetchPromises);
         const combinedArray = jsonArrays.flat();
         return combinedArray;
+        console.log('Combined JSON without errors.');
       } catch (error) {
         console.error('Error fetching JSON files:', error);
         return [];
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   fetchAndCombineJSON(jsonUrls).then(combinedData => {
+    console.log('Ready to show plants.');
     displayPlants(combinedData, plantNames);
   });
 });
@@ -76,7 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function displayPlants(plants, plantNames) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
 
+  console.log('Matching plants.');
   plantNames.forEach(plantName => {
+    console.log('Plant matched.');
     const matchingPlant = plants.find(plant => plant.name === plantName);
     if (matchingPlant) {
       const plantEntryHTML = `
