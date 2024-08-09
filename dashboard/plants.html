@@ -73,13 +73,13 @@ setTimeout(() => {
     displayPlants(combinedData, plants);
   });
 
-function displayPlants(plants, plantNames) {
+function displayPlants(data, plants) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
 
   console.log('Matching plants for list: ' + plants);
-  plants.forEach(plantName => {
+  data.forEach(plants => {
     console.log('Plant matched.');
-    const matchingPlant = plants.find(plant => plant.name === plantName);
+    const matchingPlant = plants.find(plant => plant.name === plants);
     if (matchingPlant) {
       const plantEntryHTML = `
         <div class="card">
