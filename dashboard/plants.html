@@ -70,7 +70,7 @@ setTimeout(() => {
 
   fetchAndCombineJSON(jsonUrls).then(combinedData => {
     console.log('Ready to show plants.');
-    displayPlants(combinedData, plantNames);
+    displayPlants(combinedData, plants);
   });
 
 function displayPlants(plants, plantNames) {
