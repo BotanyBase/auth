@@ -54,9 +54,6 @@ setTimeout(() => {
     'https://botanybase.obl.ong/data/alpine.json',
     'https://botanybase.obl.ong/data/desert.json'
   ]; // Your JSON file URLs
-
-  // Your array of plant names
-  const plantNames = plants; // Replace with your array of plant names
   
   async function fetchAndCombineJSON(urls) {
     const fetchPromises = urls.map(url => fetch(url).then(response => response.json()));
