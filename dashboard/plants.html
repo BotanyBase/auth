@@ -76,7 +76,7 @@ function displayPlants(plants, plantNames) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
 
   plantNames.forEach(plantName => {
-    const matchingPlant = plants.find(plant => plant.name.toLowerCase() === plantName.toLowerCase());
+    const matchingPlant = plants.find(plant => plant.name === plantName);
     if (matchingPlant) {
       const plantEntryHTML = `
         <div class="card">
@@ -91,12 +91,7 @@ function displayPlants(plants, plantNames) {
             <a href="#${matchingPlant.name.replace(/\s+/g,'-')}" rel="modal:open">
               <img src="${matchingPlant.image}" alt="${matchingPlant.name}">
             </a>
-          </div>
-          <div id="${matchingPlant.name.replace(/\s+/g,'-')}" class="modal">
-            <p>Image:</p>
-            <img src="${matchingPlant.image}" alt="plant.name">
-            <a href="#" rel="modal:close">Close</a>
-          </div>
+          </div>  
       `;
       const plantEntryElement = document.createElement('div');
       plantEntryElement.innerHTML = plantEntryHTML;
