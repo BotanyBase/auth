@@ -14,6 +14,8 @@ title: Dashboard
 </div>
 
 <script>
+var plants;
+  
 fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
   method: 'GET',
   headers: {
@@ -27,6 +29,7 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
     document.getElementById('entries').innerHTML = 'You do not have any saved plants.';
   } else {
     document.getElementById('entries').innerHTML = data.botanybase_plants;
+    plants = data.botanybase_plants;
   }
 })
 .catch((error) => {
@@ -37,5 +40,68 @@ if (data.botanybase_plants == null) {
   document.getElementById("empty").style.display = "block";
 } else {
  document.getElementById("empty").style.display = "none";
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // List of known JSON file URLs
+  const jsonUrls = [
+    'https://botanybase.obl.ong/data/tropical.json',
+    'https://botanybase.obl.ong/data/subtropical.json',
+    'https://botanybase.obl.ong/data/temperate.json',
+    'https://botanybase.obl.ong/data/alpine.json',
+    'https://botanybase.obl.ong/data/desert.json'
+  ]; // Your JSON file URLs
+
+  // Your array of plant names
+  const plantNames = plants; // Replace with your array of plant names
+  
+  async function fetchAndCombineJSON(urls) {
+    const fetchPromises = urls.map(url => fetch(url).then(response => response.json()));
+      try {
+        const jsonArrays = await Promise.all(fetchPromises);
+        const combinedArray = jsonArrays.flat();
+        return combinedArray;
+      } catch (error) {
+        console.error('Error fetching JSON files:', error);
+        return [];
+      }
+  }
+
+  fetchAndCombineJSON(jsonUrls).then(combinedData => {
+    displayPlants(combinedData, plantNames);
+  });
+});
+
+function displayPlants(plants, plantNames) {
+  const plantEntriesContainer = document.querySelector('.plant-entries');
+
+  plantNames.forEach(plantName => {
+    const matchingPlant = plants.find(plant => plant.name.toLowerCase() === plantName.toLowerCase());
+    if (matchingPlant) {
+      const plantEntryHTML = `
+        <div class="card">
+          <div class="card-content">
+            <h2>${matchingPlant.name}</h2>
+            <small><p style="text-align: center;">${matchingPlant.climate}</p></small>
+            <p>${matchingPlant.description}</p>
+            <div style="text-align: center;">
+              <p style="color: #ffffff;">${matchingPlant.height}</p>
+              <p style="color: #ffffff;">${matchingPlant.special_feature}</p>
+            </div>
+            <a href="#${matchingPlant.name.replace(/\s+/g,'-')}" rel="modal:open">
+              <img src="${matchingPlant.image}" alt="${matchingPlant.name}">
+            </a>
+          </div>
+          <div id="${matchingPlant.name.replace(/\s+/g,'-')}" class="modal">
+            <p>Image:</p>
+            <img src="${matchingPlant.image}" alt="plant.name">
+            <a href="#" rel="modal:close">Close</a>
+          </div>
+      `;
+      const plantEntryElement = document.createElement('div');
+      plantEntryElement.innerHTML = plantEntryHTML;
+      plantEntriesContainer.appendChild(plantEntryElement);
+    }
+  });
 }
 </script>
