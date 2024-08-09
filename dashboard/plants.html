@@ -32,6 +32,7 @@ fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/me', {
   } else {
     document.getElementById('entries').innerHTML = data.botanybase_plants;
     plants = data.botanybase_plants;
+    console.log(plants);
   }
 })
 .catch((error) => {
