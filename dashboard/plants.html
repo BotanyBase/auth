@@ -75,7 +75,6 @@ setTimeout(() => {
     console.log('Ready to show plants.');
     displayPlants(combinedData, plantNames);
   });
-});
 
 function displayPlants(plants, plantNames) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
@@ -105,5 +104,6 @@ function displayPlants(plants, plantNames) {
       plantEntriesContainer.appendChild(plantEntryElement);
     }
   });
-} 1000);
+};
+}, 1000);
 </script>
