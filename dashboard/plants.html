@@ -45,7 +45,7 @@ if (plants == null) {
  document.getElementById("empty").style.display = "none";
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+setTimeout(() => {
   // List of known JSON file URLs
   const jsonUrls = [
     'https://botanybase.obl.ong/data/tropical.json',
@@ -105,5 +105,5 @@ function displayPlants(plants, plantNames) {
       plantEntriesContainer.appendChild(plantEntryElement);
     }
   });
-}
+}, 1000);
 </script>
