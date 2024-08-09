@@ -81,7 +81,7 @@ function displayPlants(plants, plantNames) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
 
   console.log('Matching plants for list: ' + plants);
-  plantNames.forEach(plantName => {
+  plants.forEach(plantName => {
     console.log('Plant matched.');
     const matchingPlant = plants.find(plant => plant.name === plantName);
     if (matchingPlant) {
