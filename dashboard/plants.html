@@ -79,7 +79,7 @@ function displayPlants(data, plants) {
   console.log('Matching plants for list: ' + plants);
   data.forEach(plants => {
     console.log('Plant matched.');
-    const matchingPlant = plants.find(plant => plant.name === plants);
+    const matchingPlant = data.find(plant => plant.name === plants);
     if (matchingPlant) {
       const plantEntryHTML = `
         <div class="card">
