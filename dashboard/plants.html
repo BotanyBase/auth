@@ -47,7 +47,21 @@ if (plants == null) {
 }
 
 function deletePlants() {
-  
+  if (authStatus == 1) {
+    alert('Deleted plant archive for ' + authUsername);
+    fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/botanybase/delete', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+          },
+          body: JSON.stringify({
+            name: authUsername
+          })
+        })
+    } else {
+      alert('You are not signed in, unable to edit.');
+    }
 };
   
 setTimeout(() => {
