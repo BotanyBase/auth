@@ -95,11 +95,9 @@ setTimeout(() => {
 
 function displayPlants(data, plants) {
   const plantEntriesContainer = document.querySelector('.plant-entries');
-
   console.log('Matching plants for list: ' + plants);
-  data.forEach(plants => {
-    console.log('Plant matched.');
-    const matchingPlant = data.find(plant => plant.name === plants);
+  plants.forEach(plantName => {
+    const matchingPlant = data.find(plant => plant.name === plantName);
     if (matchingPlant) {
       const plantEntryHTML = `
         <div class="card">
@@ -114,14 +112,15 @@ function displayPlants(data, plants) {
             <a href="#${matchingPlant.name.replace(/\s+/g,'-')}" rel="modal:open">
               <img src="${matchingPlant.image}" alt="${matchingPlant.name}">
             </a>
-          </div>  
+          </div>
+        </div>
       `;
-      console.log('match found');
+      console.log('Match found');
       const plantEntryElement = document.createElement('div');
       plantEntryElement.innerHTML = plantEntryHTML;
       plantEntriesContainer.appendChild(plantEntryElement);
     }
   });
-};
+}
 }, 1000);
 </script>
