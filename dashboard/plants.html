@@ -48,7 +48,7 @@ if (plants == null) {
 }
 
 function deletePlants() {
-  if (authStatus == 1) {
+  if (localStorage.getItem('authToken') == 1) {
     alert('Deleted plant archive for ' + authUsername);
     fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/botanybase/delete', {
           method: 'PUT',
