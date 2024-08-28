@@ -94,7 +94,7 @@ if (plants == null) {
 
 function deletePlants() {
   if (localStorage.getItem('auth') == 1) {
-    alert('Deleted plant archive for ' + authUsername);
+    new AWN().success('Successfully deleted saved plants!');
     fetch('https://x8ki-letl-twmt.n7.xano.io/api:iGbUspz7/auth/botanybase/delete', {
           method: 'PUT',
           headers: {
@@ -106,7 +106,7 @@ function deletePlants() {
           })
         })
     } else {
-      alert('You are not signed in, unable to edit.');
+      new AWN().alert('You are not signed in, unable to edit.');
     }
 };
   
