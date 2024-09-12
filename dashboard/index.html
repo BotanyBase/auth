@@ -46,5 +46,9 @@ title: Dashboard
     </div>
 
 <script>
+authStatus = localStorage.getItem('auth')
     new AWN().info('Welcome back to the Dashboard!');
+    if (authStatus == 1 && username == undefined) {
+        new AWN().alert('Your authentication token has expired, please log out and sign in again')
+    };
 </script>
